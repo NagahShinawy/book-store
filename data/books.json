@@ -36,43 +36,5 @@
             ]
         },
         "counts": 1
-    },
-    {
-        "title": "CLean Code for software engineers",
-        "pages": 400,
-        "author": {
-            "username": "UncleBob",
-            "email": "bob@test.com",
-            "published_books": [
-                "CLean Code for software engineers",
-                "CLean Agile"
-            ]
-        },
-        "counts": 0
-    },
-    {
-        "title": "CLean Agile",
-        "pages": 500,
-        "author": {
-            "username": "UncleBob",
-            "email": "bob@test.com",
-            "published_books": [
-                "CLean Code for software engineers",
-                "CLean Agile"
-            ]
-        },
-        "counts": 0
-    },
-    {
-        "title": "Python for Pro",
-        "pages": 600,
-        "author": {
-            "username": "john",
-            "email": "john@test.com",
-            "published_books": [
-                "Python for Pro"
-            ]
-        },
-        "counts": 1
     }
 ]

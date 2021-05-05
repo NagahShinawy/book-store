@@ -19,10 +19,18 @@ class JsonMixin:
 
     @classmethod
     def save(cls, obj):
-        if obj not in cls.OBJS:
-            cls.OBJS.append(obj)
+        cls.OBJS.append(obj)
 
     @classmethod
     def to_json(cls):
+        data = cls.remove_duplicates()
         with open(cls.PATH, "w") as f:
-            json.dump(cls.OBJS, f, indent=4)
+            json.dump(data, f, indent=4)
+
+    @classmethod
+    def remove_duplicates(cls):
+        data = []
+        for obj in cls.OBJS:
+            if obj not in data:
+                data.append(obj)
+        return data
