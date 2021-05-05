@@ -58,7 +58,4 @@ class Book(JsonMixin):
         return book
 
     def single_book_to_json(self):
-        return {
-            "title": self.title,
-            "pages": self.pages
-        }
+        return {"title": self.title, "pages": self.pages}

@@ -24,5 +24,5 @@ class JsonMixin:
 
     @classmethod
     def to_json(cls):
-        with open(cls.PATH, 'w') as f:
+        with open(cls.PATH, "w") as f:
             json.dump(cls.OBJS, f, indent=4)

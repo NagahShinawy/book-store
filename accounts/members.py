@@ -27,7 +27,10 @@ class Member(JsonMixin):
 
     @classmethod
     def to_json(cls):
-        cls.OBJS = [member.get_member_data() if not isinstance(member, dict) else member for member in cls.OBJS]
+        cls.OBJS = [
+            member.get_member_data() if not isinstance(member, dict) else member
+            for member in cls.OBJS
+        ]
         super().to_json()
 
     def get_member_data(self):
@@ -38,7 +41,13 @@ class Member(JsonMixin):
             "bought_books": [book.single_book_to_json() for book in self.bought_books],
         }
         if isinstance(self, Author):
-            member_data.update({"published_books": [book.single_book_to_json() for book in self.published_books]})
+            member_data.update(
+                {
+                    "published_books": [
+                        book.single_book_to_json() for book in self.published_books
+                    ]
+                }
+            )
         return member_data
 
     def show_member_details(self):
@@ -53,14 +62,15 @@ class Member(JsonMixin):
 
 
 class User(Member):
-
     def __init__(self, username, email):
         super().__init__(username, email)
 
     def buy_book(self, book: Book):
         self.bought_books.append(book)
         book.number_of_bought += 1
-        print("Thanks '{}' for buying our book '{}'. I hope you enjoy".format(self, book))
+        print(
+            "Thanks '{}' for buying our book '{}'. I hope you enjoy".format(self, book)
+        )
 
     def add_book_to_favourite(self, book: Book):
         self.favourite_books.append(book)
@@ -90,7 +100,6 @@ class User(Member):
 
 
 class Author(User):
-
     def __init__(self, username, email):
         super(Author, self).__init__(username, email)
         self.published_books = []
