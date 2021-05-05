@@ -1,6 +1,7 @@
 """
 created by Nagaj at 04/05/2021
 """
+from books.book import Book
 
 
 class Member:
@@ -47,11 +48,13 @@ class Author(User):
         self.published_books = []
         self.reviewed_books = []
 
-    def publish_book(self):
-        pass
+    def publish_book(self, book: Book):
+        self.published_books.append(book)
+        book.author = self
+        print(f"book: {book} was published successfully")
 
-    def review_book(self):
-        pass
+    def review_book(self, book: Book):
+        self.reviewed_books.append(book)
 
     def show_member_details(self):
         super().show_member_details()
@@ -60,3 +63,7 @@ class Author(User):
 
         if self.reviewed_books:
             print(f"Reviewed Books: {self.reviewed_books}")
+
+    @property
+    def number_of_published_books(self):
+        return len(self.published_books)
