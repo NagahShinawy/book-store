@@ -7,7 +7,7 @@ import os
 
 class JsonMixin:
     PATH = ""
-    OBJS = []
+    objs = []
 
     @classmethod
     def load_objs(cls, objs_path):
@@ -19,7 +19,7 @@ class JsonMixin:
 
     @classmethod
     def save(cls, obj):
-        cls.OBJS.append(obj)
+        cls.objs.append(obj)
 
     @classmethod
     def to_json(cls):
@@ -30,7 +30,7 @@ class JsonMixin:
     @classmethod
     def remove_duplicates(cls):
         data = []
-        for obj in cls.OBJS:
+        for obj in cls.objs:
             if obj not in data:
                 data.append(obj)
         return data

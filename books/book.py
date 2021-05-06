@@ -10,7 +10,7 @@ class Book(JsonMixin):
     BOOKS_PATH = os.path.join("data", "books.json")
     PATH = BOOKS_PATH
     books: list = JsonMixin.load_objs(BOOKS_PATH)
-    OBJS = books
+    objs = books
 
     def __init__(self, title, pages, author):
         self.title = title
@@ -47,8 +47,8 @@ class Book(JsonMixin):
 
     @classmethod
     def to_json(cls):
-        cls.OBJS = [
-            book.update() if isinstance(book, Book) else book for book in cls.OBJS
+        cls.objs = [
+            book.update() if isinstance(book, Book) else book for book in cls.objs
         ]
         super().to_json()
 

@@ -11,7 +11,7 @@ class Member(JsonMixin):
     MEMBERS_PATH = os.path.join("data", "members.json")
     PATH = MEMBERS_PATH
     members: list = JsonMixin.load_objs(MEMBERS_PATH)
-    OBJS = members
+    objs = members
 
     def __init__(self, username, email):
         self.username = username
@@ -27,9 +27,9 @@ class Member(JsonMixin):
 
     @classmethod
     def to_json(cls):
-        cls.OBJS = [
+        cls.objs = [
             member.get_member_data() if not isinstance(member, dict) else member
-            for member in cls.OBJS
+            for member in cls.objs
         ]
         super().to_json()
 
